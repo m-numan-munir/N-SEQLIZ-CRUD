@@ -1,7 +1,11 @@
-import { User } from "../models/root.models.js";
+// import { User } from "../models/root.models.js";
+
+import { User } from "../models/user.model.js";
 
 export const createUsers = async (req, res) => {
   try {
+    console.log("BODY ", req.body);
+
     let user = await User.create(req.body);
     console.log("After ", user);
     return res.status(201).json({ status: "Success", data: user });
